@@ -1,0 +1,47 @@
+$sign-up-btn-size: 2rem;
+$sign-up-btn-weight: 600;
+$sign-up-btn-color: #ff2975;
+$sign-up-btn-color-hover: #ffd319;
+
+@font-face {
+  font-family: Bayshore;
+  src: url(./assets/Bayshore.ttf);
+}
+
+
+.App {
+  text-align: center;
+}
+
+.app-cont {
+  height: 90vh;
+}
+
+.sign-up {
+  margin: 32vh 30vh 0vh 30vh;
+  font-family: Bayshore;
+  font-size: $sign-up-btn-size;
+  font-weight: $sign-up-btn-weight;
+  color: $sign-up-btn-color;
+}
+
+.sign-up:hover {
+  color: $sign-up-btn-color-hover !important;
+  filter: blur(1px)
+}
+
+
+.alrdy {
+  margin: 20px 30vh 0vh 30vh;
+  font-family: Bayshore;
+  font-size: $sign-up-btn-size;
+  font-weight: $sign-up-btn-weight;
+  color: $sign-up-btn-color;
+}
+
+.alrdy:hover {
+  color: $sign-up-btn-color-hover !important;
+  filter: blur(1px)
+}
+
+
