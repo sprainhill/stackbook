@@ -2,12 +2,14 @@ import React from 'react';
 import { Connect } from "@blockstack/connect"
 import SignIn from './SignIn'
 import SignUp from './SignUp'
+import { UserContextConsumer } from "./user-context"
 
-const Landing = () => {
+const Landing = props => {
+  console.log("Landing props : ", props)
   const authOptions = {
-    redirectTo: '/',
+    redirectTo: '/redi',
     finished: ({ userSession }) => {
-      console.log(userSession.loadUserData());
+      props.setUserData(userSession.loadUserData())
     },
     appDetails: {
       name: 'rory\'s app',
@@ -16,17 +18,21 @@ const Landing = () => {
   };
   
   return (
-    <Connect authOptions={authOptions}>
-      <div className="App">
-        <section className="section">
-          <div className="container app-cont">
-            <SignUp />
-            <SignIn />
-        </div>
-        </section>
-      </div>
-    </Connect>
-  );
+    <UserContextConsumer>
+      {context => (
+        <Connect authOptions={authOptions}>
+          <div className="App">
+            <section className="section">
+              <div className="container app-cont">
+                <SignUp />
+                <SignIn />
+              </div>
+            </section>
+              </div>
+        </Connect>
+      )}
+    </UserContextConsumer>
+    );
 };
 
 export default Landing;

@@ -3,28 +3,16 @@ import { Connect } from "@blockstack/connect"
 import { Route } from 'react-router-dom'
 import Landing from "./Landing"
 import StackBook from './StackBook'
+import { UserContext } from "./user-context"
 import './App.scss';
 import "bulma"
 
 function App() {
   const [userData, setUserData] = useState(null)
-
-  const authOptions = {
-    redirectTo: '/',
-    finished: ({ userSession }) => {
-      console.log(userSession.loadUserData());
-    },
-    appDetails: {
-      name: 'rory\'s app',
-      icon: 'https://example.com/icon.png',
-    },
-  };
-
+  console.log("App userData : ", userData)
 
   return (
-    <Route path="/" component={Landing} />
- 
-
+      <Route path="/" render={props => <Landing setUserData={setUserData} {...props} />} />
   );
 }
 

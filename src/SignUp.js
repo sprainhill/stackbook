@@ -1,13 +1,19 @@
 import React from 'react';
 import { useConnect } from '@blockstack/connect'
+import { UserContextConsumer } from "./user-context"
 
-const SignUp = () => {
+const SignUp = props => {
+  // console.log("SignUp props : ", props)
   const { doOpenAuth } = useConnect()
 
   return (
-    <div onClick={() => doOpenAuth()} className="sign-up">
-      Sign Up
-    </div>
+    <UserContextConsumer>
+      {context => (
+        <div onClick={() => doOpenAuth()} className="sign-up">
+          Sign Up
+        </div>
+      )}
+    </UserContextConsumer>
   );
 };
 
