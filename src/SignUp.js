@@ -1,14 +1,14 @@
 import React from 'react';
 import { useConnect } from '@blockstack/connect'
 
-const SignIn = () => {
+const SignUp = () => {
   const { doOpenAuth } = useConnect()
 
   return (
-    <div onClick={() => doOpenAuth(true)} className="alrdy">
-      already have a username?
+    <div onClick={() => doOpenAuth()} className="sign-up">
+      Sign Up
     </div>
   );
 };
 
-export default SignIn;
+export default SignUp;

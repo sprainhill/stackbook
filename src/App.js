@@ -1,6 +1,7 @@
 import React from 'react';
 import { Connect } from "@blockstack/connect"
 import SignIn from './SignIn'
+import SignUp from './SignUp'
 import './App.scss';
 import "bulma"
 
@@ -23,10 +24,7 @@ function App() {
         <section className="section">
           <div className="container app-cont">
 
-            <div className='sign-up'>
-              Sign Up
-            </div>
-
+            <SignUp />
             <SignIn />
 
           {/* <div className='alrdy'>
