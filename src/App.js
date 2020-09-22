@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { Connect } from "@blockstack/connect"
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import Landing from "./Landing"
 import StackBook from './StackBook'
-import { UserContext } from "./user-context"
 import './App.scss';
 import "bulma"
 
@@ -12,7 +10,15 @@ function App() {
   console.log("App userData : ", userData)
 
   return (
-      <Route path="/" render={props => <Landing setUserData={setUserData} {...props} />} />
+    <>
+    <Route exact path="/">
+
+    </Route>
+    {userData ? <Redirect to="/stackbook" /> : <Landing setUserData={setUserData} />}
+    
+    <Route path="/stackbook" component={StackBook} />
+    </>
+
   );
 }
 
