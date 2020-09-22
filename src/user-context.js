@@ -2,17 +2,10 @@ import React, { Component } from "react"
 
 const { Provider, Consumer } = React.createContext()
 
-// const passUpUserData = ud => {
-//   console.log("user data : ", ud)
-// }
-
-// export const UserContext = React.createContext({
-//   passUpUserData: "passUpUserData"
-// })
 
 class UserContextProvider extends Component {
   state = {
-    userData: 'day'
+    userData: null
   }
 
   passUserData = () => {
@@ -25,7 +18,6 @@ class UserContextProvider extends Component {
 
 
   render() {
-    console.log("this.state : ", this.state)
   return <Provider value={{userData: this.state.userData, passUserData: this.passUserData}}>{this.props.children}</Provider>
   }
 }

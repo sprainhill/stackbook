@@ -16,7 +16,7 @@ function App() {
     </Route>
     {userData ? <Redirect to="/stackbook" /> : <Landing setUserData={setUserData} />}
     
-    <Route path="/stackbook" component={StackBook} />
+    <Route path="/stackbook" render={props => <StackBook userData={userData} {...props} />} />
     </>
 
   );
