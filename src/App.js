@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Connect } from "@blockstack/connect"
-import SignIn from './SignIn'
-import SignUp from './SignUp'
+import { Route } from 'react-router-dom'
+import Landing from "./Landing"
+import StackBook from './StackBook'
 import './App.scss';
 import "bulma"
 
 function App() {
+  const [userData, setUserData] = useState(null)
+
   const authOptions = {
     redirectTo: '/',
     finished: ({ userSession }) => {
@@ -19,24 +22,8 @@ function App() {
 
 
   return (
-    <Connect authOptions={authOptions}>
-      <div className="App">
-        <section className="section">
-          <div className="container app-cont">
-
-            <SignUp />
-            <SignIn />
-
-          {/* <div className='alrdy'>
-            already have a username?
-          </div> */}
-
-        </div>
-        </section>
-      </div>
-
-    </Connect>
-
+    <Route path="/" component={Landing} />
+ 
 
   );
 }
