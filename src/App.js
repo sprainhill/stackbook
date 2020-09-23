@@ -11,14 +11,15 @@ function App() {
 
   return (
     <>
-    <Route exact path="/">
+    {/* <Route exact path="/">
     {!userData ? <Landing setUserData={setUserData} /> : <Redirect to="/stackbook" />}
     </Route>
 
     <Route path="/stackbook">
     {userData ? <Route path="/stackbook" render={props => <StackBook userData={userData} {...props} />} /> : <Redirect to="/" />}
 
-    </Route>
+    </Route> */}
+    <Route path="/" render={props => <StackBook userData={userData} {...props} />} />
 
     
 

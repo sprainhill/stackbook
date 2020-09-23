@@ -1,4 +1,5 @@
 $blockstack-blue: #3700ff;
+$hover-bg: #E5E5E5;
 
 // STACK HEADER
 .stack-header-cols {
@@ -8,9 +9,22 @@ $blockstack-blue: #3700ff;
 
 // STACK CARD
 
-.stack-card-cont {
+.stack-card {
   border: 1px solid $blockstack-blue;
   margin: 100px 200px !important;
   height: 50vh
 }
 
+.stack-card-menu {
+  border: 1px solid $blockstack-blue;
+}
+
+.stack-card-menu-choice {
+  text-align: center;
+  border: 1px solid $blockstack-blue;
+  &:hover {
+    color: $blockstack-blue;
+    background: $hover-bg;
+  }
+
+}
