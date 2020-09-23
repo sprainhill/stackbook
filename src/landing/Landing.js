@@ -2,12 +2,12 @@ import React from 'react';
 import { Connect } from "@blockstack/connect"
 import SignIn from './SignIn'
 import SignUp from './SignUp'
-import { UserContextConsumer } from "./user-context"
+import { UserContextConsumer } from "../user-context"
 
 const Landing = props => {
   console.log("Landing props : ", props)
   const authOptions = {
-    redirectTo: '/redi',
+    redirectTo: '/',
     finished: ({ userSession }) => {
       props.setUserData(userSession.loadUserData())
     },

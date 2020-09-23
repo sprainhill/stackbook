@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Route, Redirect } from 'react-router-dom'
-import Landing from "./Landing"
-import StackBook from './StackBook'
+import Landing from "./landing/Landing"
+import StackBook from './stackbook/StackBook'
 import './App.scss';
 import "bulma"
 
@@ -12,11 +12,16 @@ function App() {
   return (
     <>
     <Route exact path="/">
+    {!userData ? <Landing setUserData={setUserData} /> : <Redirect to="/stackbook" />}
+    </Route>
+
+    <Route path="/stackbook">
+    {userData ? <Route path="/stackbook" render={props => <StackBook userData={userData} {...props} />} /> : <Redirect to="/" />}
 
     </Route>
-    {userData ? <Redirect to="/stackbook" /> : <Landing setUserData={setUserData} />}
+
     
-    <Route path="/stackbook" render={props => <StackBook userData={userData} {...props} />} />
+
     </>
 
   );

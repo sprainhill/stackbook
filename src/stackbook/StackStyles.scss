@@ -1,0 +1,16 @@
+$blockstack-blue: #3700ff;
+
+// STACK HEADER
+.stack-header-cols {
+  border-bottom: 2px solid $blockstack-blue;
+  margin: 0px !important;
+}
+
+// STACK CARD
+
+.stack-card-cont {
+  border: 1px solid $blockstack-blue;
+  margin: 100px 200px !important;
+  height: 50vh
+}
+
