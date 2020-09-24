@@ -30,15 +30,6 @@ const StackCard = props => {
     displayTab = <Score userData={userData} />
   }
 
-//   const getTwitterHandle = () => {
-//     for (const acc in userData.profile.account) {
-//       if (userData.profile.account[acc].service === "twitter") {
-//       twitterHandle = `@${userData.profile.account[acc].identifier}`
-//     }
-//   }
-// }
-
-
   return (
     <div className="card stack-card">
       <div className="card-content">
