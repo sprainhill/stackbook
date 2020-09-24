@@ -2,8 +2,10 @@ import React from 'react';
 
 const Score = () => {
   return (
-    <div>
-      Score
+    <div className="score-cols columns">
+      <div className="score-col column">
+        Score
+      </div>
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useConnect } from '@blockstack/connect'
-import { UserContextConsumer } from "../user-context"
 
 const SignUp = () => {
   const { doOpenAuth } = useConnect()

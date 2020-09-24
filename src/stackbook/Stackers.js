@@ -2,8 +2,10 @@ import React from 'react';
 
 const Stackers = () => {
   return (
-    <div>
-      Stackers
+    <div className="stacker-cols columns">
+      <div className="stacker-col column">
+        Stackers
+      </div>
     </div>
   );
 };

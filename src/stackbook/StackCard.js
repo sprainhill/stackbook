@@ -1,22 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Overview from "./Overview"
 import Stackers from "./Stackers"
 import AppsTab from "./AppsTab"
 import Score from "./Score"
 
-const StackCard = () => {
+const StackCard = props => {
+  const { userData } = props
   const [tab, setTab] = useState("overview")
+  const [twitterHandle, setTwitterHandle] = useState("")
+  console.log("StackCard userData : ", userData)
+
+  useEffect(() => {
+    for (const acc in userData.profile.account) {
+      if (userData.profile.account[acc].service === "twitter") {
+      setTwitterHandle(`@${userData.profile.account[acc].identifier}`)
+    }
+  }
+
+  })
 
   let displayTab
   if (tab === "overview") {
-    displayTab = <Overview />
+    displayTab = <Overview userData={userData} />
   } else if (tab === "stackers") {
-    displayTab = <Stackers />
+    displayTab = <Stackers userData={userData} />
   } else if (tab === "appsTab") {
-    displayTab = <AppsTab />
+    displayTab = <AppsTab userData={userData} />
   } else if (tab === "score") {
-    displayTab = <Score />
+    displayTab = <Score userData={userData} />
   }
+
+//   const getTwitterHandle = () => {
+//     for (const acc in userData.profile.account) {
+//       if (userData.profile.account[acc].service === "twitter") {
+//       twitterHandle = `@${userData.profile.account[acc].identifier}`
+//     }
+//   }
+// }
 
 
   return (
@@ -24,12 +44,12 @@ const StackCard = () => {
       <div className="card-content">
         <div className="media">
           <div className="media-left">
-            <figure className="image is-48x48">
-              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image"></img> </figure>
+            <figure className="image is-96x96">
+              <img src={userData.profile.image[0].contentUrl}alt="Placeholder"></img> </figure>
           </div>
           <div className="media-content">
-            <p className="title is-4">John Smith</p>
-            <p className="subtitle is-6">@johnsmith</p>
+            <p className="title is-4">{userData.profile.name}</p>
+            <p className="subtitle is-6">{twitterHandle}</p>
           </div>
         </div>
 
@@ -54,14 +74,6 @@ const StackCard = () => {
             {displayTab}
           </div>
         </div>
-
-        {/* <div className="content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-          <a href="#">#css</a> <a href="#">#responsive</a>
-          <br />
-          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-        </div> */}
 
       </div>
     </div>

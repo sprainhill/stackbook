@@ -12,7 +12,6 @@ $hover-bg: #E5E5E5;
 .stack-card {
   border: 1px solid $blockstack-blue;
   margin: 100px 200px !important;
-  height: 50vh
 }
 
 .stack-card-menu {
@@ -26,5 +25,48 @@ $hover-bg: #E5E5E5;
     color: $blockstack-blue;
     background: $hover-bg;
   }
+}
 
+// OVERVIEW
+
+.overview-cols {
+  border: 1px solid purple;
+}
+
+.overview-col {
+  border: 1px solid orange;
+}
+
+.ov-attribute {
+  font-weight: 600;
+}
+
+// Stackers
+
+.stacker-cols {
+  border: 1px solid purple;
+}
+
+.stacker-col {
+  border: 1px solid orange;
+}
+
+// AppsTab
+
+.appsTab-cols {
+  border: 1px solid purple;
+}
+
+.appsTab-col {
+  border: 1px solid orange;
+}
+
+// Score
+
+.score-cols {
+  border: 1px solid purple;
+}
+
+.score-col {
+  border: 1px solid orange;
 }

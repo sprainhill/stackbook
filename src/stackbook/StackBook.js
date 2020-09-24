@@ -6,7 +6,7 @@ const StackBook = props => {
   return (
     <div>
       <StackHeader userData={props.userData} />
-      <StackCard />
+      <StackCard userData={props.userData} />
     </div>
   );
 };
