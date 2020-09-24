@@ -1,6 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Overview from "./Overview"
+import Stackers from "./Stackers"
+import AppsTab from "./AppsTab"
+import Score from "./Score"
 
 const StackCard = () => {
+  const [tab, setTab] = useState("overview")
+
+  let displayTab
+  if (tab === "overview") {
+    displayTab = <Overview />
+  } else if (tab === "stackers") {
+    displayTab = <Stackers />
+  } else if (tab === "appsTab") {
+    displayTab = <AppsTab />
+  } else if (tab === "score") {
+    displayTab = <Score />
+  }
+
+
   return (
     <div className="card stack-card">
       <div className="card-content">
@@ -16,18 +34,24 @@ const StackCard = () => {
         </div>
 
         <div className="stack-card-menu columns">
-          <div className="column stack-card-menu-choice">
+          <div className="column stack-card-menu-choice" onClick={() => setTab("overview")}>
             Overview
           </div>
 
-          <div className="column stack-card-menu-choice">
+          <div className="column stack-card-menu-choice" onClick={() => setTab("stackers")}>
             Stackers
           </div>
-          <div className="column stack-card-menu-choice">
+          <div className="column stack-card-menu-choice" onClick={() => setTab("appsTab")}>
             Apps
           </div>
-          <div className="column stack-card-menu-choice">
+          <div className="column stack-card-menu-choice" onClick={() => setTab("score")}>
             Score
+          </div>
+        </div>
+
+        <div className="columns">
+          <div className="column">
+            {displayTab}
           </div>
         </div>
 
