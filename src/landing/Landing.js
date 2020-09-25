@@ -14,15 +14,25 @@ const Landing = props => {
   const authOptions = {
     redirectTo: '/',
     finished: ({ userSession }) => {
-      // set to local state
       setUserData(userSession.loadUserData())
-      // then pass up
     },
     appDetails: {
       name: 'rory\'s app',
       icon: 'https://example.com/icon.png',
     },
   };
+
+  useEffect(() => {
+    if (userSession.isSignInPending()) {
+      userSession.handlePendingSignIn().then(userData => {
+        window.history.replaceState({}, document.title, '/');
+        setUserData( userData);
+      });
+    } else if (userSession.isUserSignedIn()) {
+      setUserData(userSession.loadUserData())
+    }
+  })
+
 
   useEffect(() => {
     props.setUserData(userData)
