@@ -1,11 +1,9 @@
 import { CLICKS_FILENAME } from "./constants"
 
-export const saveClicks = async (userSession, isPublic) => {
+export const saveClicks = async (userSession, clicks, isPublic) => {
   console.log("saveClicks")
-  const clicks = 'click'
   await userSession.putFile(CLICKS_FILENAME, JSON.stringify({ clicks, isPublic }), {
     encrypt: !isPublic,
-    dangerouslyIgnoreEtag: true
   })
 }
 
