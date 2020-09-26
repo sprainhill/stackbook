@@ -24,16 +24,14 @@ const Score = () => {
   }
 
   const saveClicks = async () => {
-    // call data store saveClicks
-    // pass clicks, isPublic
     await userSession.putFile(CLICKS_FILENAME, JSON.stringify(clicks), putFileOptions).then(console.log)
   }
 
   const fetchClicks = async () => {
-    console.log("fetchClicks")
     await userSession.getFile(CLICKS_FILENAME, getFileOptions).then(fileContents => {
-      const fc= JSON.parse(fileContents)
-      console.log("fileContents : ", typeof(fc))
+      const fc = JSON.parse(fileContents)
+      setGaiaClicks(fc)
+      
     })
   }
 
@@ -43,10 +41,8 @@ const Score = () => {
 
       <div className="score-col column">
         <div className="click-btn" onClick={handleClicks}>click me</div>
-        <div className="save-btn" onClick={saveClicks}>save clicks</div>
-        <div className="score">clicks : {clicks}</div>
         <div className="save-btn" onClick={fetchClicks}>get gaia clicks</div>
-        <div className="score">gaia clicks : </div>
+        <div className="score">gaia clicks : {gaiaClicks}</div>
       </div>
 
     </div>
