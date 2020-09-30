@@ -1,19 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Connect } from '@blockstack/connect'
-import { saveClicks } from "../assets/data-store"
 import { CLICKS_FILENAME } from "../assets/constants"
 import { useConnect } from '@blockstack/connect'
-import { UserSession } from "blockstack"
-import { appConfig } from "../assets/constants"
-
-
-// const userSession = new UserSession({ appConfig })
-// const putFileOptions = {
-//   encrypt: false
-// }
-// const getFileOptions = {
-//   decrypt: false
-// }
 
 
 const Score = () => {
@@ -32,7 +20,7 @@ const userData = userSession.loadUserData()
   }
 
   const saveClicks = async () => {
-    await userSession.putFile(CLICKS_FILENAME, JSON.stringify(clicks), {encrypt: false}).then(console.log)
+    await userSession.putFile(CLICKS_FILENAME, JSON.stringify(clicks), {encrypt: false}).
   }
 
   const fetchClicks = async () => {
