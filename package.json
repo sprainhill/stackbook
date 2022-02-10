@@ -10,7 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "blockstack": "^21.1.1",
     "bulma": "^0.9.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "radiks": "^0.2.2-beta.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
